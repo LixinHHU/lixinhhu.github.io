@@ -3,9 +3,9 @@ title: "Xin Li (李鑫)"
 description: "Remote sensing image processing, multimodal data fusion, and domain adaptation"
 description_zh: "遥感图像处理、多模态数据融合、域自适应语义分割"
 # 部署时填写真实 GitHub 用户名/仓库名，未知信息不预填。
-repository: "LixinHHU/hhulixin.github.io"
+repository: "LixinHHU/lixinhhu.github.io"
 url: "https://lixinhhu.github.io"
-baseurl: "/hhulixin.github.io"
+baseurl: ""
 author:
   name: "Xin Li 李鑫"
   avatar: "/images/xin-li.jpg"
