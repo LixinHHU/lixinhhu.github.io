@@ -6,7 +6,8 @@ description_zh: "遥感图像处理、多模态数据融合、域自适应语义
 repository: "LixinHHU/hhulixin.github.io"
 url: "https://hhulixin.github.io"
 # USERNAME.github.io 仓库保持空值；项目仓库填写 /仓库名。
-baseurl: ""
+
+baseurl: "/hhulixin.github.io"
 author:
   name: "Xin Li 李鑫"
   avatar: "/images/xin-li.jpg"
