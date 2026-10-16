@@ -1,0 +1,5 @@
+<ul class="news-list">
+{% for item in site.data.news %}
+  <li><span aria-hidden="true">🎉</span> {% if item.count %}{% if page.lang == 'zh-CN' %}<strong>{{ item.venue }}</strong>：{{ item.count }} 篇论文被录用。{% else %}<strong>{{ item.count }} papers</strong> have been accepted by <strong>{{ item.venue }}</strong>.{% endif %}{% else %}{% if page.lang == 'zh-CN' %}论文{% else %}Our paper {% endif %}{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}<strong>{{ item.title }}</strong>{% endif %}{% if page.lang == 'zh-CN' %} 已{% if item.venue %}被 <em>{{ item.venue }}</em> {% endif %}录用。{% else %} has been accepted{% if item.venue %} by <em>{{ item.venue }}</em>{% endif %}.{% endif %}{% endif %}</li>
+{% endfor %}
+</ul>

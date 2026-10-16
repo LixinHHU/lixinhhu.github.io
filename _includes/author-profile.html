@@ -1,0 +1,26 @@
+{% assign author = site.author %}
+{% assign zh = false %}{% if page.lang == 'zh-CN' %}{% assign zh = true %}{% endif %}
+<div itemscope itemtype="https://schema.org/Person" class="profile_box">
+  <div class="author__avatar"><img src="{{ author.avatar | relative_url }}" class="author__avatar" alt="{{ author.name }}" width="175" height="175"></div>
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">{{ author.name }}</h3>
+    <p class="author__bio author__role">{% if zh %}{{ author.role_zh }}{% else %}{{ author.role }}{% endif %}</p>
+    <p class="author__bio">{% if zh %}{{ author.bio_zh }}{% else %}{{ author.bio }}{% endif %}</p>
+  </div>
+  <div class="author__urls-wrapper">
+    <ul class="author__urls social-icons">
+      <li><div class="author__interests">{% if zh %}{{ site.description_zh }}{% else %}{{ site.description }}{% endif %}</div></li>
+      <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {% if zh %}{{ author.location_zh }}{% else %}{{ author.location }}{% endif %}</li>
+      <li><a href="{{ author.university_profile }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-fw fa-university" aria-hidden="true"></i> {% if zh %}学院主页{% else %}HHU Profile{% endif %}</a></li>
+      <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
+      <li><a href="{{ author.googlescholar }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a></li>
+      {% if author.github != '' %}<li><a href="https://github.com/{{ author.github }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>{% endif %}
+      {% if author.orcid != '' %}<li><a href="{{ author.orcid }}" target="_blank" rel="noopener noreferrer"><i class="ai ai-orcid ai-fw" aria-hidden="true"></i> ORCID</a></li>{% endif %}
+    </ul>
+    <div class="author__urls_sm">
+      <a href="{{ author.university_profile }}" target="_blank" rel="noopener noreferrer" aria-label="HHU Profile"><i class="fas fa-fw fa-university" aria-hidden="true"></i></a>
+      <a href="mailto:{{ author.email }}" aria-label="Email Xin Li"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i></a>
+      <a href="{{ author.googlescholar }}" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,350 @@
+---
+---
+
+/*
+ *    Minimal Mistakes Jekyll Theme
+ *
+ *  - Michael Rose
+ *  - mademistakes.com
+ *  - https://twitter.com/mmistakes
+ *
+*/
+
+@import "vendor/breakpoint/breakpoint"; // media query mixins
+@import "variables";
+@import "mixins";
+@import "vendor/susy/susy";
+
+@import "reset";
+@import "base";
+
+@import "utilities";
+@import "animations";
+@import "tables";
+@import "buttons";
+@import "notices";
+@import "masthead";
+@import "navigation";
+@import "footer";
+@import "syntax";
+
+@import "forms";
+
+@import "page";
+@import "archive";
+@import "sidebar";
+
+@import "vendor/font-awesome/fontawesome";
+@import "vendor/font-awesome/solid";
+@import "vendor/font-awesome/brands";
+@import "vendor/magnific-popup/magnific-popup";
+@import "print";
+
+.paper-box {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: 1px #efefef solid;
+    padding: 2em 0 2em 0;
+    
+
+    .paper-box-image{
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        order: 2;
+        img {
+            max-width: 400px;
+            box-shadow: 3px 3px 6px #888;
+            object-fit: cover;
+        }
+    }
+    
+    .paper-box-text{
+        max-width: 100%;
+        order: 1;
+    }
+    
+    @include breakpoint($medium) {
+        .paper-box-image{
+            justify-content: left;
+            min-width: 200px;
+            max-width: 40%;
+            order: 1;
+        }
+        
+        .paper-box-text{
+            justify-content: left;
+            padding-left: 2em;
+            max-width: 60%;
+            order: 2;
+        }
+
+    }
+
+
+}
+
+$scroll_offset : 2em;
+h1:before, .anchor:before { 
+    content: ''; 
+    display: block; 
+    position: relative; 
+    width: 0; 
+    height: $scroll_offset; 
+    margin-top: -$scroll_offset;
+}
+
+.badge {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: absolute;
+    margin-top: .5em;
+    margin-left: -.5em;
+    color: white;
+    background-color: #00369f;
+    font-size: .8em;
+}
+
+.pub-venue {
+    display: inline-block;
+    margin-right: .4em;
+    padding: .08em .4em;
+    color: #fff;
+    background-color: #00369f;
+    border-radius: 2px;
+    font-size: .72em;
+    font-weight: 700;
+    line-height: 1.4;
+    vertical-align: .08em;
+    white-space: nowrap;
+}
+
+.scholar-citation-badge {
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    margin: .15rem 0 .55rem;
+    border: 1px solid #2f6fca;
+    border-radius: 999px;
+    background: #4285f4;
+    box-shadow: 0 3px 9px rgba(66, 133, 244, .22);
+    color: #fff !important;
+    font-size: .78em;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none !important;
+    vertical-align: middle;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.scholar-citation-badge i {
+    padding: .52rem .62rem;
+    background: rgba(255, 255, 255, .13);
+    font-size: 1.05em;
+}
+
+.scholar-citation-badge__label {
+    padding: .52rem .6rem;
+}
+
+.scholar-citation-badge__count {
+    min-width: 2.25rem;
+    padding: .52rem .65rem;
+    background: #fff;
+    color: #2d62ae;
+    text-align: center;
+}
+
+.scholar-citation-badge:hover,
+.scholar-citation-badge:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(66, 133, 244, .3);
+}
+
+.company-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: .22em;
+    margin: .06em .04em;
+    padding: .06em .32em .06em .12em;
+    border: 1px solid #dfe5ec;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(32, 55, 85, .06);
+    color: #334455;
+    font-size: .76em;
+    font-weight: 600;
+    line-height: 1.25;
+    vertical-align: .08em;
+    white-space: nowrap;
+}
+
+.company-inline__logo {
+    display: inline-flex;
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 1px;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.company-inline__logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.company-inline__logo--zyt {
+    background: #31585a;
+}
+
+.company-inline__monogram {
+    padding: 0;
+    color: #fff;
+    font-size: .4em;
+    font-weight: 800;
+    letter-spacing: -.02em;
+}
+
+.company-inline__monogram--telecom {
+    background: #1674b9;
+}
+
+.company-inline__monogram--cmb {
+    background: #d71920;
+}
+
+.company-inline__monogram--boc {
+    background: #a71930;
+}
+
+body.wechat-modal-open {
+    overflow: hidden;
+}
+
+.wechat-modal[hidden] {
+    display: none;
+}
+
+.wechat-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.wechat-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .62);
+}
+
+.wechat-modal__dialog {
+    position: relative;
+    z-index: 1;
+    width: 92vw;
+    max-width: 420px;
+    max-height: 92vh;
+    overflow: auto;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, .28);
+    text-align: center;
+}
+
+.wechat-modal__close {
+    position: absolute;
+    top: .4rem;
+    right: .65rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #555;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.wechat-modal__close:hover,
+.wechat-modal__close:focus {
+    color: #000;
+}
+
+.wechat-modal__title {
+    margin: 0 2rem 1rem;
+    font-size: 1.25rem;
+}
+
+.wechat-modal__qr {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 68vh;
+    margin: 0 auto;
+}
+
+.wechat-modal__hint {
+    margin: 1rem 0 0;
+    color: #666;
+    font-size: .9rem;
+}
+
+/* Xin Li: small adjustments to the original AcadHomepage theme. */
+html { scroll-padding-top: 75px; }
+h1[id], .anchor { scroll-margin-top: 75px; }
+h1:before, .anchor:before { display: none; }
+.author__avatar img { width: 175px; height: 175px; max-width: 175px; object-fit: cover; object-position: center 33%; }
+.author__role { color: #5c6872; margin-bottom: .2em; }
+.author__interests { white-space: normal; margin-bottom: 1em; }
+.paper-box-image > div { width: 100%; position: relative; }
+.paper-box .paper-box-image img { display: block; width: 100%; height: 200px; max-width: 400px; object-fit: contain; background: #fff; }
+.paper-box .paper-box-image .paper-image-blank { height: 170px; box-shadow: none; background: transparent; }
+.paper-title { font-weight: 600; overflow-wrap: anywhere; }
+.paper-authors { line-height: 1.55; }
+.paper-venue, .paper-role { font-size: .88em; color: #5c6872; }
+.paper-links { display: flex; flex-wrap: wrap; gap: .7em; font-size: .82em; }
+.paper-links a { white-space: nowrap; }
+.paper-box-text { min-width: 0; }
+.news-list li { margin-bottom: .65em; }
+.recruit-note { border-left: 3px solid #8dacd4; background: #f7f9fc; padding: .65em .9em; margin: .8em 0 1.5em; font-size: .95em; }
+.academic-footer { border-top: 1px solid #efefef; margin-top: 2.5em; padding: 1em 0 2em; font-size: .75em; color: #626d77; }
+.academic-footer p { margin: .25em 0; }
+.skip-link { position: fixed; left: 1em; top: -6em; z-index: 100; background: #fff; padding: .5em; }
+.skip-link:focus { top: .5em; }
+a:focus-visible, button:focus-visible { outline: 2px solid #4285f4; outline-offset: 3px; }
+@media (max-width: 925px) {
+  .author__avatar img { width: 85px; height: 85px; max-width: 85px; }
+  .author__urls_sm { display: flex; gap: .5em; flex-wrap: wrap; }
+}
+@media (max-width: 767px) {
+  .paper-box .paper-box-image { order: 1; margin-bottom: 1em; }
+  .paper-box .paper-box-text { order: 2; }
+  .paper-box .paper-box-image img { max-width: 100%; height: auto; max-height: 240px; }
+  .paper-box .paper-box-image--empty { display: none; }
+  .paper-box { padding: 1.5em 0; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Right-side contact button and QR dialog. */
+.wechat-float { position: fixed; right: 24px; bottom: 24px; z-index: 1000; display: inline-flex; align-items: center; gap: 8px; padding: 11px 16px; border: 1px solid #e0e9e4; border-radius: 28px; background: #fff; color: #168347; box-shadow: 0 3px 15px rgba(0,0,0,.13); font-family: inherit; font-size: 14px; font-weight: 600; line-height: 1.4; cursor: pointer; }
+.wechat-float .fa-weixin { font-size: 23px; }
+.wechat-float:hover { background: #f0faf4; }
+.wechat-modal__qr { height: auto; object-fit: contain; }
+.wechat-modal__save { display: inline-block; margin-top: .65rem; font-size: .85rem; }
+.wechat-modal__dialog { max-height: calc(100vh - 32px); padding: 1.15rem; }
+.wechat-modal__qr { max-height: 60vh; }
+@supports (height: 100dvh) { .wechat-modal__dialog { max-height: calc(100dvh - 32px); } .wechat-modal__qr { max-height: 60dvh; } }
+@media (max-width: 767px) { .wechat-float { right: 14px; bottom: 14px; } .academic-footer { padding-bottom: 5em; } }

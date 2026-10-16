@@ -1,0 +1,4 @@
+<script src="{{ '/assets/js/main.min.js' | relative_url }}?v=20261016"></script>
+{% if site.author.wechat_qr %}<script src="{{ '/assets/js/wechat-modal.js' | relative_url }}" defer></script>{% endif %}
+{% if site.google_analytics_id != '' %}{% include analytics.html %}{% endif %}
+{% if site.google_scholar_stats_enabled %}{% include fetch_google_scholar_stats.html %}{% endif %}

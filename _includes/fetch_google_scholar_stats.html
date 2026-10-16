@@ -1,0 +1,51 @@
+{% if site.repository != "" %}
+<script>
+    $(document).ready(function () {
+        {% if site.google_scholar_stats_use_cdn %}
+        var gsDataBaseUrl = 'https://cdn.jsdelivr.net/gh/{{ site.repository }}@'
+        {% else %}
+        var gsDataBaseUrl = 'https://raw.githubusercontent.com/{{ site.repository }}/'
+        {% endif %}
+        $.getJSON(gsDataBaseUrl + "google-scholar-stats/gs_data.json", function (data) {
+            if (data.scholar_id !== {{ site.google_scholar_id | jsonify }}) return;
+            var totalCitation = data['citedby']
+            var totalCitationElement = document.getElementById('total_cit')
+            if (totalCitationElement && Number.isFinite(totalCitation)) {
+                totalCitationElement.textContent = totalCitation
+            }
+
+            function normalizeTitle(title) {
+                return (title || '')
+                    .toLowerCase()
+                    .normalize('NFKD')
+                    .replace(/[^a-z0-9]+/g, ' ')
+                    .trim()
+            }
+
+            var publications = data['publications'] || {}
+            var publicationsByTitle = {}
+            Object.keys(publications).forEach(function (paperId) {
+                var publication = publications[paperId]
+                var title = publication && publication['bib'] && publication['bib']['title']
+                if (title) {
+                    publicationsByTitle[normalizeTitle(title)] = publication
+                }
+            })
+
+            var citationEles = document.getElementsByClassName('show_paper_citations')
+            Array.prototype.forEach.call(citationEles, element => {
+                var paperId = element.getAttribute('data')
+                var paperTitle = element.getAttribute('data-title')
+                var publication = paperId ? publications[paperId] : null
+                if (!publication && paperTitle) {
+                    publication = publicationsByTitle[normalizeTitle(paperTitle)]
+                }
+                if (publication && publication['num_citations'] !== undefined) {
+                    element.textContent = '| Citations: ' + publication['num_citations']
+                }
+            });
+        });
+    })
+</script>
+
+{% endif %}

@@ -1,0 +1,8 @@
+<title>{{ site.title | escape }} · {% if page.lang == 'zh-CN' %}河海大学{% else %}Hohai University{% endif %}</title>
+{% if page.lang == 'zh-CN' %}{% assign description = site.description_zh %}{% else %}{% assign description = site.description %}{% endif %}
+<meta name="description" content="{{ description | escape }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ site.title | escape }}">
+<meta property="og:description" content="{{ description | escape }}">
+<meta property="og:locale" content="{{ page.lang | default: 'en' }}">
+{% if site.url != '' %}<link rel="canonical" href="{{ page.url | absolute_url }}">{% endif %}

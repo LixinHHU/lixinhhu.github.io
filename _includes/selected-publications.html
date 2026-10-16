@@ -1,0 +1,20 @@
+{% for paper in site.data.publications %}
+<article class="paper-box">
+  <div class="paper-box-image{% unless paper.image %} paper-box-image--empty{% endunless %}">
+    {% if paper.image %}<div>{% if paper.venue_short %}<div class="badge">{{ paper.venue_short }}{% if paper.year %} {{ paper.year }}{% endif %}</div>{% endif %}<a href="{{ paper.pdf | relative_url }}" target="_blank" rel="noopener noreferrer"><img src="{{ paper.image | relative_url }}" alt="{{ paper.image_alt | escape }}" loading="lazy"></a></div>{% else %}<div class="paper-image-blank" aria-hidden="true"></div>{% endif %}
+  </div>
+  <div class="paper-box-text">
+    <p class="paper-title">{% if paper.doi %}<a href="https://doi.org/{{ paper.doi }}" target="_blank" rel="noopener noreferrer">{{ paper.title }}</a>{% else %}{{ paper.title }}{% endif %}</p>
+    {% if paper.authors %}<p class="paper-authors">{{ paper.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>{% endif %}
+    {% if paper.venue %}<p class="paper-venue"><em>{{ paper.venue }}</em>{% if paper.volume %}, {{ paper.volume }}{% endif %}{% if paper.pages %}, {{ paper.pages }}{% endif %}{% if paper.year %}, {{ paper.year }}{% endif %}.</p>{% endif %}
+    {% if paper.role %}<p class="paper-role">{% if page.lang == 'zh-CN' %}{{ paper.role_zh }}{% else %}{{ paper.role }}{% endif %}</p>{% endif %}
+    <div class="paper-links">
+      {% if paper.pdf %}<a href="{{ paper.pdf | relative_url }}" target="_blank" rel="noopener noreferrer">[PDF]</a>{% endif %}
+      {% if paper.doi %}<a href="https://doi.org/{{ paper.doi }}" target="_blank" rel="noopener noreferrer">[DOI]</a>{% endif %}
+      {% if paper.bib %}<a href="{{ paper.bib | relative_url }}" download>[BibTeX]</a>{% endif %}
+      <a href="https://scholar.google.com/scholar?q={{ paper.title | url_encode }}" target="_blank" rel="noopener noreferrer">{% if page.lang == 'zh-CN' %}[引用 / Scholar]{% else %}[Citations / Scholar]{% endif %}</a>
+      <span class="show_paper_citations" data-title="{{ paper.title | escape }}"></span>
+    </div>
+  </div>
+</article>
+{% endfor %}

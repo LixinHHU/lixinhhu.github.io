@@ -1,0 +1,82 @@
+# 李鑫学术主页。编辑后提交到 GitHub，Pages 会重新构建。
+title: "Xin Li (李鑫)"
+description: "Remote sensing image processing, multimodal data fusion, and domain adaptation"
+description_zh: "遥感图像处理、多模态数据融合、域自适应语义分割"
+# 部署时填写真实 GitHub 用户名/仓库名，未知信息不预填。
+repository: "LixinHHU/hhulixin.github.io"
+url: "https://hhulixin.github.io"
+# USERNAME.github.io 仓库保持空值；项目仓库填写 /仓库名。
+baseurl: ""
+author:
+  name: "Xin Li 李鑫"
+  avatar: "/images/xin-li.jpg"
+  wechat_qr: "/images/wechat-qr.jpg"
+  bio: "Hohai University"
+  bio_zh: "河海大学"
+  role: "Associate Professor"
+  role_zh: "副教授"
+  location: "Nanjing, China"
+  location_zh: "中国 · 南京"
+  email: "li-xin@hhu.edu.cn"
+  university_profile: "https://cies.hhu.edu.cn/2024/1011/c21613a289740/page.htm"
+  googlescholar: "https://scholar.google.com/citations?user=7MSuZkIAAAAJ&hl=en"
+  github: ""
+  orcid: ""
+  linkedin: ""
+# 引用链接始终可用，真实统计尚未抓取时不显示数字。
+# 在 Actions 手动运行 Get Citation Data 成功后，可改为 true。
+google_scholar_id: "7MSuZkIAAAAJ"
+google_scholar_stats_enabled: false
+google_scholar_stats_use_cdn: false
+google_analytics_id: ""
+google_site_verification: ""
+bing_site_verification: ""
+baidu_site_verification: ""
+include:
+  - _pages
+  - files
+exclude:
+  - docs
+  - google_scholar_crawler
+  - .bundle
+  - .jekyll-cache
+  - .sass-cache
+  - .github
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - run_server.sh
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+  - vendor
+  - node_modules
+  - tmp
+  - "*.zip"
+encoding: "utf-8"
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: "\n\n"
+incremental: false
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  entity_output: as_char
+  syntax_highlighter: rouge
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+      author_profile: true
+sass:
+  sass_dir: _sass
+  style: compressed
+permalink: /:categories/:title/
+timezone: Asia/Shanghai
+plugins:
+  - jekyll-sitemap
+  - jekyll-redirect-from

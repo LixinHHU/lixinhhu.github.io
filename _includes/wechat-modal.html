@@ -1,0 +1,16 @@
+{% if site.author.wechat_qr %}
+{% assign wechat_zh = false %}{% if page.lang == 'zh-CN' %}{% assign wechat_zh = true %}{% endif %}
+<button class="wechat-float" type="button" data-wechat-open aria-controls="wechat-modal" aria-haspopup="dialog" aria-expanded="false">
+  <i class="fab fa-weixin" aria-hidden="true"></i><span>WeChat</span>
+</button>
+<div class="wechat-modal" id="wechat-modal" hidden>
+  <div class="wechat-modal__backdrop" data-wechat-close></div>
+  <div class="wechat-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="wechat-modal-title" aria-describedby="wechat-modal-hint" tabindex="-1">
+    <button class="wechat-modal__close" type="button" data-wechat-close aria-label="{% if wechat_zh %}关闭{% else %}Close{% endif %}">&times;</button>
+    <h2 class="wechat-modal__title" id="wechat-modal-title">{% if wechat_zh %}添加微信{% else %}Add me on WeChat{% endif %}</h2>
+    <img class="wechat-modal__qr" src="{{ site.author.wechat_qr | relative_url }}" alt="{% if wechat_zh %}李鑫的微信二维码{% else %}Xin Li’s WeChat QR code{% endif %}" width="888" height="1233">
+    <p class="wechat-modal__hint" id="wechat-modal-hint">{% if wechat_zh %}使用微信扫一扫，或保存二维码后在微信中识别。{% else %}Scan with WeChat, or save the QR code and open it in WeChat.{% endif %}</p>
+    <a class="wechat-modal__save" href="{{ site.author.wechat_qr | relative_url }}" download="xin-li-wechat.jpg">{% if wechat_zh %}保存二维码{% else %}Save QR code{% endif %}</a>
+  </div>
+</div>
+{% endif %}
